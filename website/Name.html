@@ -1,0 +1,121 @@
+
+<html>
+<body>
+	<form action = "Data.html" onsubmit="return validateForm()">
+		<font color="red"> <h3> <u> Seller information</u></h3></font>
+	
+		<label for="fname">First Name</label><br><br>
+		<input type="text" id="fname" name="firstname" placeholder="Brack"><br><br>
+	
+		<label for="lname">Last Name</label><br><br>
+    	<input type="text" id="lname" name="lastname" placeholder="obama"><br><br>
+	
+		<label for="city">City</label><br><br>
+    	<input type="text" id="city" name="City" placeholder="Waterloo"><br><br>
+
+    	<label for="email">Email</label><br><br>
+    	<input type="text" id="email" name="Email" placeholder="abc@gmail.com"><br><br>
+	
+		<label for="phone">Mobile Number</label><br><br>
+    	<input type="text" id="number" name="Number" placeholder="987 654 3218"><br><br>
+	
+		<label for="address">Address</label><br><br>
+    	<input type="text" id="address" name="address" placeholder="waterloo"><br><br>
+
+    	<label for="make">Vehicle Make</label><br><br>
+    	<input type="text" id="make" name="Search vehicle" placeholder="Ford"><br><br>
+	
+		<label for="model">Vehicle Model</label><br><br>
+    	<input type="text" id="model" name="Search vehicle" placeholder="Mustang"><br><br>
+	
+		<label for="year">Year</label><br><br>
+    	<input type="text" id="year" name="Search vehicle" placeholder="2014"><br><br>
+
+    	<input type="submit" value="Submit">
+	</form>
+	<button class="home" onclick="goToHome()">Go To Home</button>
+	<script>
+	function validateForm()
+	{
+		var alertmess = "";
+		if(document.getElementById("fname").value == "")
+		{
+			alertmess += "Invalid Seller Name \n";
+		}
+		if(document.getElementById("lname").value == "")
+		{
+			alertmess += "Invalid Last Name \n";
+		}
+		if(document.getElementById("city").value == "")
+		{
+			alertmess += "Invalid City \n";
+		}
+		if(document.getElementById("email").value == "")
+		{
+			alertmess += "Invalid Email \n";
+		}
+		if(document.getElementById("number").value == "")
+		{
+			alertmess += "Invalid Number \n";
+		}
+		if(document.getElementById("address").value == "")
+		{
+			alertmess += "Invalid Address \n";
+		}
+		if(document.getElementById("make").value == "")
+		{
+			alertmess += "Invalid Make \n";
+		}
+		if(document.getElementById("model").value == "")
+		{
+			alertmess += "Invalid Model \n";
+		}
+		if(document.getElementById("year").value == "")
+		{
+			alertmess += "Invalid Year \n";
+		}
+		if (alertmess != ""){
+			alert(alertmess);
+    	return false;
+		}else {
+    		if (typeof(Storage) !== "undefined") {
+      			var arr = new Array(9);
+    var elements = ["fname", "lname", "city", "email", "number", "address", "make", "model", "year"]; 
+     var i;
+    for (i = 0; i < elements.length; i++) {
+    arr[i] = document.getElementById(elements[i]).value;
+     } 
+  
+  var getData = 
+  {
+    "fname":arr[0],
+    "lname":arr[1],
+    "city":arr[2],
+    "email":arr[3],
+    "number":arr[4],
+    "address":arr[5],
+    "make":arr[6],
+    "model":arr[7],
+    "year":arr[8]
+
+  }
+
+localStorage.setItem('currentData', JSON.stringify(getData));
+
+  var array = JSON.parse(localStorage.getItem('Data') || '[]');
+  array.push(getData);
+  localStorage.setItem('Data', JSON.stringify(array));
+
+    } else {
+    document.getElementById("result").innerHTML = "WEBSTORAGE ERROR!!!";
+}
+
+  }
+}
+function goToHome()
+{
+location.assign("Main.html");
+}
+</script>
+</body>
+</html>

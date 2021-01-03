@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="result"></div>
+
+
+<script>      
+      var string = localStorage.getItem('currentData');
+      var parsedArray = JSON.parse(string);
+
+     document.getElementById("result").innerHTML = 
+      "<br><br>" + "First Name: " + parsedArray.fname 
+     + "<br>" + "Last Name: " + parsedArray.lname
+      + "<br>" + "City: " + parsedArray.city
+       + "<br>" + "Email: " + parsedArray.email
+        + "<br>" + "Address: " + parsedArray.number
+         + "<br>" + "Number: " + parsedArray.address
+           + "<br><br>" + "Make: " + parsedArray.make
+            + "<br>" + "Model: " + parsedArray.model
+             + "<br>" + "Year: " + parsedArray.year ;             
+
+</script>
+
+</body>
+</html> 

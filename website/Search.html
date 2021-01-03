@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="result"></div>
+
+<button class="go_to_home_button" onclick="goToHomePage()" >Go to Home Page</button>
+
+<script>
+function goToHomePage() {
+  location.replace("HomePage.html");
+}
+
+	var stxt = "Seller Details";
+      var ctxt = "Car Details"
+	 var string = localStorage.getItem('Data');
+      var p_array = JSON.parse(string);
+["fname", "lname", "city", "email", "number", "address", "make", "model", "year"]; 
+      var i;
+    for (i = 0; i < p_array.length; i++) {
+	document.getElementById("result").innerHTML += stxt + "<br><br>" + "First Name: " + p_array[i].fname 
+     + "<br>" + "Last Name: " + p_array[i].lname
+      + "<br>" + "City: " + p_array[i].city
+       + "<br>" + "Email: " + p_array[i].email
+        + "<br>" + "Address: " + p_array[i].address
+         + "<br>" + "Number: " + p_array[i].number
+         + "<br><br>" + ctxt
+           + "<br><br>" + "Make: " + p_array[i].make
+            + "<br>" + "Model: " + p_array[i].model
+             + "<br>" + "Year: " + p_array[i].year + "<br><br>";
+	}         
+</script>
+
+</body>
+</html> 
